@@ -7,10 +7,10 @@ module "vpc" {
 }
 
 module "ec2_instance" {
-  source         = "../modules/ec2"
-  ami_id         = var.ami_id
-  instance_type  = var.instance_type
-  subnet_id      = module.vpc.public_subnet_id
+  source                 = "../modules/ec2"
+  ami_id                 = var.ami_id
+  instance_type          = var.instance_type
+  subnet_id              = module.vpc.public_subnet_id
   vpc_security_group_ids = [module.ec2_sg.security_group_id]
 
   tags = {
@@ -21,9 +21,9 @@ module "ec2_instance" {
 
 
 module "ec2_sg" {
-  source   = "../modules/security_group"
-  vpc_id   = module.vpc.vpc_id
-  tags     = {
+  source = "../modules/security_group"
+  vpc_id = module.vpc.vpc_id
+  tags = {
     Name = "ec2-sg"
   }
 
