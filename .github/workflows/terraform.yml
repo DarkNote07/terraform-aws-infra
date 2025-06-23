@@ -38,4 +38,4 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -lock=false -var-file=../../envs/dev/aws/terraform.tfvars
+        run: terraform plan -lock=false -var-file=../envs/dev/aws/terraform.tfvars
